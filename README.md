@@ -17,7 +17,7 @@ messages appropriately.
 
 You haven't yet learned all the functionality needed to perform
 these tasks. We'll get to it shortly. For now, we're going to focus
-on creating the HTML rendering needed for this project.
+on getting Django to produce/render the HTML needed for this project.
 
 As you work on this project, you should use git to periodically
 update your work. I have no testing code in place to check the quality
