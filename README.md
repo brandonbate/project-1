@@ -47,8 +47,11 @@ is satisfied.
 8. If you haven't already, use the Django template feature to generate
 your HTML. This will involved creating an app in your project. Implement the appropriate unit tests.
 9. Design an HTML document, which Django renders, with the following:
-    A. the HTML has the name of your web application.
-    B. the HTML has an interface for a user to post a message (it doesn't have to work yet!).
+<ol type="a">
+  <li>the HTML has the name of your web application.</li>
+  <li>Tea</li>
+  <li>the HTML has an interface for a user to post a message (it doesn't have to work yet!).</li>
+</ol>
 As you create this HTML document, be sure to update your functional
 and unit tests appropriately.
 10. Continue improving the design your HTML. I strongly encourage taking
