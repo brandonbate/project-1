@@ -11,10 +11,10 @@ functionality:
 On this page, they see a list of all the discussion thread titles
 as well as a form for creating a new thread.
 
-2. When on a homepage, if a user clicks on a thread title, they should be brought to 
+2. When on the homepage, if a user clicks on a thread title, they should be brought to 
 separate page that displays all the posts for that thread. Posts should display
 the alias of the poster as well as their message. I recommend ordering posts in
-chronological order (this is the default ordering Django). At the bottom of the posts
+chronological order (this is the default ordering in Django). At the bottom of the posts
 should be a form for adding to this thread. The form should include fields for
 entering an alias and message. When the user submits this form, they should be brought
 back to this thread page with their post ocurring at the bottom of the list of postings.
@@ -24,16 +24,19 @@ to the "home page".
 
 4. When at the "home page", a user should be able to create a new thread. You should
 create a form where the user enters a thread title, an alias and a message. When the user
-submits the form, they should be forward to a page like that described in 2. On that
+submits the form, they should be forwarded to a page like that described in 2. On that
 page, they should find their thread title and their post, with alias and message included.
 
 The above description provides a rough sketch for a functional test that mirrors
 that of ```test_can_start_a_list_for_one_user``` in our textbook example. You should
 implement a test like this. In addition to this, you should implement a funtional test
-aking to that of ```test_multiple_users_can_start_lists_at_different_urls`` in our textbook
+akin to that of ```test_multiple_users_can_start_lists_at_different_urls`` in our textbook
 example; that is, you should test that posts don't magically appear in other threads.
 
-You should also have unit tests for your applications. I've organized my tests as follows:
+I'm assuming that you are using the same techniques as those demonstrated in our textbook
+(up to and including Chapter 7).
+As with the textbook example, you should also have unit tests for your applications. 
+I've organized my tests as follows:
 
 ```
 	# Check that we can create database entries directly.
