@@ -7,22 +7,64 @@ it has a rich assortment of features. We're going to begin with something
 that's much simpler. For now, we're planning on having the following
 functionality:
 
-1. Users can visit the page and post a message. We won't require
-users to login, so messages can be made by anyone.
-2. A message should contain the date and time at which it was posted
-and the message text. Most recent messages should be displayed first
-(for the most part).
-3. Users can reply to each other. When that happens, we want to nest
-messages appropriately.
+1. When users first visit the site they see the "home page".
+On this page, they see a list of all the discussion thread titles
+as well as a form for creating a new thread.
 
-You haven't yet learned all the functionality needed to perform
-these tasks. We'll get to it shortly. For now, we're going to focus
-on getting Django to produce/render the HTML needed for this project.
+2. When on a homepage, if a user clicks on a thread title, they should be brought to 
+separate page that displays all the posts for that thread. Posts should display
+the alias of the poster as well as their message. I recommend ordering posts in
+chronological order (this is the default ordering Django). At the bottom of the posts
+should be a form for adding to this thread. The form should include fields for
+entering an alias and message. When the user submits this form, they should be brought
+back to this thread page with their post ocurring at the bottom of the list of postings.
 
-As you work on this project, you should use git to periodically
-update your work. I have no testing code in place to check the quality
-of your work as yet, but I may elect to create some later. I'll let
-you know if I do.
+3. When viewing a thread, a user should be able to click on a link to send them back
+to the "home page".
+
+4. When at the "home page", a user should be able to create a new thread. You should
+create a form where the user enters a thread title, an alias and a message. When the user
+submits the form, they should be forward to a page like that described in 2. On that
+page, they should find their thread title and their post, with alias and message included.
+
+The above description provides a rough sketch for a functional test that mirrors
+that of ```test_can_start_a_list_for_one_user``` in our textbook example. You should
+implement a test like this. In addition to this, you should implement a funtional test
+aking to that of ```test_multiple_users_can_start_lists_at_different_urls`` in our textbook
+example; that is, you should test that posts don't magically appear in other threads.
+
+You should also have unit tests for your applications. I've organized my tests as follows:
+
+```
+	# Check that we can create database entries directly.
+	class DirectDatabaseTests(TestCase):        
+		def test_can_create_threads_and_posts(self):
+
+	# We test if we can use view functions to store data to database.
+	class PostToDatabaseTests(TestCase):
+
+		def test_can_create_a_thread_and_post_through_POST(self):
+		def test_can_add_to_thread_through_POST(self):
+
+	# Test that correct redirects and renders occur
+	class RenderAndRedirectTests(TestCase):
+	   
+		def test_home_page_returns_correct_html(self):      
+		def test_view_thread_returns_correct_html(self):      
+		def test_add_new_thread_through_POST_redirects(self):      
+		def test_add_post_through_POST_redirects(self):      
+```
+You should have similar type of tests for your application.
+
+Extra credit will be awarded to projects that have:
+
+1. Provide a pleasant looking user interface. You can implement this by using/modifying
+the CSS document I provided in Activity #2. For the truly adventerous,
+you can try using Bootstrap to give a modern look and feel.
+
+2. Include timestamps on posts.
+
+3. Create a thread structure that allows for nested replies.
 
 To get started on this project, you will need to use a variety of tools
 (git, virtualenv, selenium, django, html, css, etc.). Our textbook
@@ -31,7 +73,7 @@ As an alternative, feel free to use my
 [Cheat Sheet](https://github.com/brandonbate/Cheat-Sheet)
 to quickly find the commands you need. To further aid you in this
 project, I have a outline of the steps you should perform to get
-started.
+started:
 
 1. Clone the repository associated with this activity
 into a folder you will use for this project.
@@ -50,7 +92,4 @@ your HTML. This will involved creating an app in your project. Implement the app
 the HTML has the name of your web application and the HTML has an interface for a user to post a message (it doesn't have to work yet!).
 As you create this HTML document, be sure to update your functional
 and unit tests appropriately.
-10. Continue improving the design your HTML. I strongly encourage taking
-a look at the CSS document I provided in Activity #2. It includes
-comments that help explain how to customize the appearance of HTML.
 
